@@ -1,0 +1,8 @@
+.header:hover{
+    @apply shadow-lg;
+}
+
+.header::after{
+    content: "";
+    @apply absolute -top-16 left-[50%] -translate-x-[50%] w-[105%] h-20 z-10 bg-[#31323c];
+}
