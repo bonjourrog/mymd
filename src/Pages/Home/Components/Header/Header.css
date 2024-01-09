@@ -1,8 +1,17 @@
+
+.header{
+    @apply flex items-center justify-between relative w-1/2 h-[4em] mx-auto px-6 border-l border-r border-b border-app-gray-slate shadow-md rounded-md cursor-pointer transition-all duration-150 ease-linear text-zinc-400 italic;
+}
 .header:hover{
     @apply shadow-lg;
 }
-
 .header::after{
     content: "";
     @apply absolute -top-16 left-[50%] -translate-x-[50%] w-[105%] h-20 z-10 bg-app-gray-granite;
+}
+.header__note-title{
+    @apply min-w-80 bg-transparent outline-none ring-0 focus:border-b focus:border-orange-500 pb-1 placeholder:opacity-50 px-4;
+}
+.header__download-btn{
+    @apply text-xl text-orange-200;
 }
