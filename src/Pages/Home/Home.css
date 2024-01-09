@@ -1,0 +1,21 @@
+.home{
+    @apply w-screen h-screen pt-4  bg-app-gray-granite overflow-hidden;
+}
+.header{
+    @apply relative w-1/2 h-[4em] mx-auto border-l border-r border-b border-app-gray-slate shadow-md rounded-md cursor-pointer transition-all duration-150 ease-linear;
+}
+.main{
+    @apply flex w-full h-[calc(100%-4em)] p-20;
+}
+.box{
+    @apply w-1/2 h-full p-24 rounded ;
+}
+.box--editor{
+    @apply rounded-none;
+}
+.box--viewer{
+    @apply bg-app-black-raisin text-zinc-300 overflow-y-scroll overflow-x-hidden shadow-md;
+}
+.editor__input{
+    @apply w-full h-full text-zinc-200 tracking-wider ring-0 outline-none bg-transparent;
+}

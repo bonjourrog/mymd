@@ -1,10 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
-import { HomeProps } from './Home.props';
+import { HomeProps, MousePosition } from './Home.props';
+import Header from './Components/Header';
+import MarkdownBox from './Components/MarkdownBox';
+import Markdown from 'react-markdown';
+import gfm from "remark-gfm";
+import Navbar from './Components/Navbar';
 
 const Home:React.FC<HomeProps> = ()=>{
+
+    const [mousePosition, setMousePosition] = useState<MousePosition>({X:10, Y:0});
+    const [markdown, setMarkdown] = useState<string>("");
+
+    const handleMousePosiotion = (event:MouseEvent)=>{
+        setMousePosition({X:event.clientX, Y: event.clientY})
+    }
+
+
+    useEffect(()=>{
+        window.addEventListener('mousemove', handleMousePosiotion)
+    }, []);
+
     return (
-        <p className='text-bold text-blue-400 text-2xl'>Home works!</p>
+        <div className='home'>
+            <Header />
+            <Navbar mousePosition={mousePosition}/>
+            <main className='main'>
+                <MarkdownBox className="box box--editor">
+                    <textarea 
+                        className='editor__input' id="editor"
+                        onChange={(e)=>setMarkdown(e.target.value)}
+                        value={markdown}
+                        placeholder='Start writing ur ideas 🧑🏻‍💻✨!'
+                    ></textarea>
+                </MarkdownBox>
+                <MarkdownBox className='box box--viewer'>
+                    <Markdown rehypePlugins={[gfm]} children={markdown}></Markdown>
+                </MarkdownBox>
+            </main>
+        </div>
     );
 }
 
