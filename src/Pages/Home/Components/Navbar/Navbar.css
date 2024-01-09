@@ -1,0 +1,7 @@
+.nav{
+    @apply absolute -left-64 top-0 z-10 w-64 h-full bg-app-black-raisin transition-all duration-500 ease-out;
+}
+
+.nav:hover{
+    @apply left-0;
+}
