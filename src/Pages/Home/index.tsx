@@ -16,6 +16,9 @@ const Home:React.FC<HomeProps> = ()=>{
         setMousePosition({X:event.clientX, Y: event.clientY})
     }
 
+    const downloadFile = ()=>{
+        
+    }
 
     useEffect(()=>{
         window.addEventListener('mousemove', handleMousePosiotion)
@@ -23,7 +26,7 @@ const Home:React.FC<HomeProps> = ()=>{
 
     return (
         <div className='home'>
-            <Header />
+            <Header markdown={markdown}/>
             <Navbar mousePosition={mousePosition}/>
             <main className='main'>
                 <MarkdownBox className="box box--editor">

@@ -1,9 +1,6 @@
 .home{
     @apply w-screen h-screen pt-4  bg-app-gray-granite overflow-hidden;
 }
-.header{
-    @apply relative w-1/2 h-[4em] mx-auto border-l border-r border-b border-app-gray-slate shadow-md rounded-md cursor-pointer transition-all duration-150 ease-linear;
-}
 .main{
     @apply flex w-full h-[calc(100%-4em)] p-20;
 }
