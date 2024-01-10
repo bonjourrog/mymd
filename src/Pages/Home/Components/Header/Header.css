@@ -1,17 +1,27 @@
 
 .header{
-    @apply flex items-center justify-between relative w-1/2 h-[4em] mx-auto px-6 border-l border-r border-b border-app-gray-slate shadow-md rounded-md cursor-pointer transition-all duration-150 ease-linear text-zinc-400 italic;
+    @apply flex items-center justify-between w-full h-[4em] px-24 text-zinc-400 italic font-[Arial];
 }
-.header:hover{
+/* .header:hover{
     @apply shadow-lg;
-}
-.header::after{
+} */
+/* .header::after{
     content: "";
     @apply absolute -top-16 left-[50%] -translate-x-[50%] w-[105%] h-20 z-10 bg-app-gray-granite;
+} */
+.logo{
+    @apply text-xl not-italic font-bold text-zinc-100;
 }
 .header__note-title{
-    @apply min-w-80 bg-transparent outline-none ring-0 focus:border-b focus:border-orange-500 pb-1 placeholder:opacity-50 px-4;
+    @apply min-w-80 bg-transparent outline-none ring-0 focus:border-b focus:border-orange-500 focus:border-opacity-40 pb-1 placeholder:opacity-50 px-4 font-bold tracking-wider italic placeholder:font-normal text-center;
 }
-.header__download-btn{
-    @apply text-xl text-orange-200;
+.header__list{
+    @apply flex gap-10 items-center;
+}
+.header__list-item{
+    @apply cursor-pointer;
+    color: var(--app-purple-medium);
+}
+.header__list-item--disable{
+    @apply text-zinc-500;
 }
