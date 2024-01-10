@@ -1,4 +1,4 @@
-import React, { CSSProperties, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 import { HomeProps, MousePosition } from './Home.props';
 import Header from './Components/Header';
@@ -7,7 +7,7 @@ import Markdown from 'react-markdown';
 import gfm from "remark-gfm";
 import Navbar from './Components/Navbar';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark, xonokai, vs, a11yDark, twilight, tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';  
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';  
 
 
 
