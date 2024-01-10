@@ -88,12 +88,10 @@ blockquote {
     margin: 0 0 1em 0;
     padding: 0 1em;
     color: #6a737d;
-    /* Color de texto similar al de la cita predeterminada */
 }
 
 .box code {
     background-color: #22232b00;
-    /* Color de fondo similar al bloque de código predeterminado */
     padding: 0.2em 0.4em;
     font-family: 'Menlo', 'Monaco', monospace;
     font-size: 85%;
@@ -101,13 +99,29 @@ blockquote {
 }
 
 .box pre {
-    background-color: #17181e39;
-    padding: 1em;
+    width: 100%;
+    padding: 1em 0em;
     overflow: auto;
-    border-radius: .2em;
-    box-shadow: .0em .3em 1em rgba(0, 0, 0, 0.2);
     font-family: 'Menlo', 'Monaco', monospace;
+    background-color: #242529 !important;
+    box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);
+    border-radius: .2em;
+    margin-bottom: 2em;
 }
+
+.box pre code{
+    @apply text-zinc-400;
+}
+
+.box pre > div{
+    /* border: none !important; */
+    background-color: transparent !important;
+}
+
+/* pre code.language-Java{
+    color: #cc7832;
+    
+} */
 
 .box img {
     max-width: 100%;
@@ -147,4 +161,48 @@ blockquote {
 
 .box--viewer{
     cursor: url('https://img.icons8.com/external-others-inmotus-design/10/fe713e/external-Cursor-glyph-others-inmotus-design.png'), pointer;
+}
+
+.box .contains-task-list::before{
+    /* content: '\2022'; */
+    display: flex;
+    justify-content: center;
+    content:"todos"  url('https://img.icons8.com/sf-black-filled/20/4D4D4D/checked-checkbox.png');
+    color: #525252;
+    font-weight: bold;
+    font-size: .6em;
+    /* display: inline-block; */
+    width: 1em;
+    margin-left: -2em;
+}
+
+.box .task-list-item::before{
+    content: "";
+}
+
+.box .task-list-item{
+    display: flex;
+    align-items: center;
+}
+
+.box .task-list-item input[type="checkbox"]{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: block;
+    appearance: none; /* Oculta los estilos predeterminados del navegador */
+      -webkit-appearance: none; /* Para navegadores basados en WebKit como Chrome y Safari */
+      -moz-appearance: none; /* Para navegadores basados en Gecko como Firefox */
+
+      width: .7em; /* Ancho del checkbox */
+      height: .7em; /* Altura del checkbox */
+      border: .2em solid rgb(80, 80, 80); /* Borde verde */
+      border-radius: 100%; /* Borde circular */
+      outline: none; 
+      margin-right: 1em;
+}
+.box .task-list-item input[type="checkbox"]:checked{
+    background-color: rgb(254, 179, 108);
+    border-color: rgb(80, 80, 80);;
 }
