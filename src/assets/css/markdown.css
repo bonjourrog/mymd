@@ -131,7 +131,26 @@ blockquote {
 
 .box img {
     max-width: 100%;
+    margin: 1em 0em;
+    border-radius: .3em;
+    opacity: .5;
+    box-shadow: 0em 0em 1em rgba(0, 0, 0, 0.1);
+    transition: all .3s ease-in-out;
     /* Asegura que las imágenes no se extiendan más allá de su contenedor */
+}
+
+.box img:hover{
+    opacity: 1;
+}
+
+.box img:active{
+    position: absolute;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    width: 50em;
+    z-index: 10;
 }
 
 .box del{
