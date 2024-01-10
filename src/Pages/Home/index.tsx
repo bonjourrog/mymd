@@ -15,13 +15,16 @@ const Home:React.FC<HomeProps> = ()=>{
 
     const [mousePosition, setMousePosition] = useState<MousePosition>({X:10, Y:0});
     const [markdown, setMarkdown] = useState<string>("");
-
+    
     const handleMousePosiotion = (event:MouseEvent)=>{
         setMousePosition({X:event.clientX, Y: event.clientY})
     }
 
     useEffect(()=>{
-        window.addEventListener('mousemove', handleMousePosiotion)
+        window.addEventListener('mousemove', handleMousePosiotion);
+        return ()=>{
+            window.removeEventListener('mousemove', handleMousePosiotion);
+        }
     }, []);
 
     return (
