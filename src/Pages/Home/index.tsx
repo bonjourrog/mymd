@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { CSSProperties, useEffect, useRef, useState } from 'react';
 import './Home.css';
 import { HomeProps, MousePosition } from './Home.props';
 import Header from './Components/Header';
@@ -6,6 +6,10 @@ import MarkdownBox from './Components/MarkdownBox';
 import Markdown from 'react-markdown';
 import gfm from "remark-gfm";
 import Navbar from './Components/Navbar';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dark, xonokai, vs, a11yDark, twilight, tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';  
+
+
 
 const Home:React.FC<HomeProps> = ()=>{
 
@@ -14,10 +18,6 @@ const Home:React.FC<HomeProps> = ()=>{
 
     const handleMousePosiotion = (event:MouseEvent)=>{
         setMousePosition({X:event.clientX, Y: event.clientY})
-    }
-
-    const downloadFile = ()=>{
-        
     }
 
     useEffect(()=>{
@@ -38,7 +38,25 @@ const Home:React.FC<HomeProps> = ()=>{
                     ></textarea>
                 </MarkdownBox>
                 <MarkdownBox className='box box--viewer'>
-                    <Markdown rehypePlugins={[gfm]} children={markdown}></Markdown>
+                    <Markdown rehypePlugins={[gfm]} children={markdown} components={{
+                        code: ({ className, children, ...props }) => {
+                            const match = /language-(\w+)/.exec(className || '');
+                            return match ? (
+                                <SyntaxHighlighter
+                                    style={tomorrow }
+                                    language={match[1]}
+                                    PreTag="div"
+                                    children={String(children).replace(/\n$/, '')}
+                                    //   {...props, {style={dark}}}
+                                />
+                            ) : (
+                                <code className={className} {...props}>
+                                    {children}
+                                </code>
+                            );
+                            },
+                        }}
+                    />
                 </MarkdownBox>
             </main>
         </div>

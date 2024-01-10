@@ -8,7 +8,7 @@
     @apply w-1/2 h-full p-24 rounded ;
 }
 .box--editor{
-    @apply rounded-none;
+    @apply rounded-none pb-0;
 }
 .box--viewer{
     @apply bg-app-black-raisin text-zinc-300 overflow-y-scroll overflow-x-hidden shadow-md;
