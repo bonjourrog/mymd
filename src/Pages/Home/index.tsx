@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Home.css';
 import { HomeProps, MousePosition } from './Home.props';
 import Header from './Components/Header';
@@ -7,21 +7,39 @@ import Markdown from 'react-markdown';
 import gfm from "remark-gfm";
 import Navbar from './Components/Navbar';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';  
-
+import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 
 const Home:React.FC<HomeProps> = ()=>{
 
     const [mousePosition, setMousePosition] = useState<MousePosition>({X:10, Y:0});
     const [markdown, setMarkdown] = useState<string>("");
-    
+    const timeRef = useRef();
     const handleMousePosiotion = (event:MouseEvent)=>{
         setMousePosition({X:event.clientX, Y: event.clientY})
     }
 
+    const handleTextareaOnChange = (event:React.ChangeEvent<HTMLTextAreaElement>)=>{
+        setMarkdown(event.target.value);
+    }
+
+    useEffect(()=>{
+        if(timeRef.current){
+            clearTimeout(timeRef.current)
+        }
+        setTimeout(()=>{
+            localStorage.setItem("markdown", markdown)
+        }, 1000)
+    }, [markdown])
+
     useEffect(()=>{
         window.addEventListener('mousemove', handleMousePosiotion);
+        setMarkdown(markdown)
+        
+        // Get markdown data
+        const savedFile:string = localStorage.getItem("markdown") as string;
+        if(savedFile) setMarkdown(savedFile);
+
         return ()=>{
             window.removeEventListener('mousemove', handleMousePosiotion);
         }
@@ -35,7 +53,7 @@ const Home:React.FC<HomeProps> = ()=>{
                 <MarkdownBox className="box box--editor">
                     <textarea 
                         className='editor__input' id="editor"
-                        onChange={(e)=>setMarkdown(e.target.value)}
+                        onChange={(event)=>handleTextareaOnChange(event)}
                         value={markdown}
                         placeholder='Start writing ur ideas 🧑🏻‍💻✨!'
                     ></textarea>
@@ -50,7 +68,6 @@ const Home:React.FC<HomeProps> = ()=>{
                                     language={match[1]}
                                     PreTag="div"
                                     children={String(children).replace(/\n$/, '')}
-                                    //   {...props, {style={dark}}}
                                 />
                             ) : (
                                 <code className={className} {...props}>
