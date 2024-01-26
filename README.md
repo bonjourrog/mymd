@@ -1,30 +1,53 @@
-# React + TypeScript + Vite
+# MYMD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project serves as a minimalist markdown editor and visualizer, designed to provide a hands-on opportunity for practicing and honing React skills. Offering a simplified interface, the application allows users to create and visualize markdown content efficiently. By focusing on essential functionalities, such as editing and rendering markdown, the project aims to facilitate a practical learning experience for React enthusiasts.
 
-Currently, two official plugins are available:
+## Screenshots
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![mymd creenshot](https://res.cloudinary.com/dcezb5utw/image/upload/v1705979423/mymd/l7ewxhq8v4t4mb9m4jd3.png)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- [x] Create a markdown file
+- [x] Visualize the content with a minimal interface
+- [x] Save as .md
+- [ ] New file
+- [ ] Open md file
 
-- Configure the top-level `parserOptions` property like this:
+## Requirements
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Be sure to get installed the next tools before you execute this project:
+
+- Node.js
+- npm
+- vite
+
+## Instalation and Usage
+
+- Clone this repository
+
+``` bash
+   git clone https://github.com/tu-usuario/tu-proyecto.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Go to the folder project
+
+``` bash
+   cd tu-proyecto
+```
+
+- Install dependecies
+
+``` bash
+    npm install
+```
+
+- Run app
+
+ ``` bash
+    npm run dev
+```
+
+## License
+
+This project is under the MIT license
